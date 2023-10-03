@@ -2,41 +2,6 @@ import React, { Component } from 'react';
 import css from '../Statistics/Statistics.module.css';
 
 export class Statistics extends Component {
-  // state = {
-  //   good: this.props.good,
-  //   neutral: this.props.neutral,
-  //   bad: this.props.neutral,
-  // };
-
-  // HandlerPress = btn => {
-  //   this.setState(prevState => {
-  //     return {
-  //       [btn]: prevState[btn] + 1,
-  //     };
-  //   });
-  // };
-
-  // HandlerClickGood = () => {
-  //   this.HandlerPress('good');
-  // };
-  // HandlerClickNeut = () => {
-  //   this.HandlerPress('neutral');
-  // };
-  // HandlerClickBad = () => {
-  //   this.HandlerPress('bad');
-  // };
-
-  // countTotalFeedback = () => {
-  //   return this.state.good + this.state.neutral + this.state.bad;
-  // };
-  // countPositiveFeedbackPercentage = () => {
-  //   const Percent =
-  //     (this.state.good /
-  //       (this.state.good + this.state.neutral + this.state.bad)) *
-  //     100;
-  //   return isNaN(Percent) ? 0 : Math.round(Percent);
-  // };
-
   render() {
     const { good, neutral, bad, total, positivePercentage } = this.props;
     return (

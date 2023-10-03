@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import css from 'components/FeedbackOptions/FeedbackOptions.modules.css';
+import css from 'components/FeedbackOptions/FeedbackOptions.module.css';
 
 export class FeedbackOptions extends Component {
   render() {
