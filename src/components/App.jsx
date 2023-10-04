@@ -32,19 +32,11 @@ export class App extends Component {
     return this.state.good + this.state.neutral + this.state.bad;
   };
   countPositiveFeedbackPercentage = () => {
-    const Percent =
-      (this.state.good /
-        (this.state.good + this.state.neutral + this.state.bad)) *
-      100;
+    const Percent = (this.state.good / this.countTotalFeedback()) * 100;
     return isNaN(Percent) ? 0 : Math.round(Percent);
   };
   render() {
     return (
-      // <div
-      // // style={{
-      // //   paddingLeft: '20px',
-      // // }}
-      // >
       <Section title="Please leave feedback">
         <FeedbackOptions
           options={[
@@ -67,8 +59,6 @@ export class App extends Component {
           <Notification message={'There is no feedback'}></Notification>
         )}
       </Section>
-
-      // </div>
     );
   }
 }
