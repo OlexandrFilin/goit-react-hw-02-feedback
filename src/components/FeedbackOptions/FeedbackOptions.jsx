@@ -5,27 +5,17 @@ export class FeedbackOptions extends Component {
   render() {
     return (
       <>
-        <button
-          type="button"
-          className={css.statBtn}
-          onClick={this.props.options[0]}
-        >
-          Good{' '}
-        </button>
-        <button
-          type="button"
-          className={css.statBtn}
-          onClick={this.props.options[1]}
-        >
-          Neutral
-        </button>
-        <button
-          type="button"
-          className={css.statBtn}
-          onClick={this.props.options[2]}
-        >
-          Bad{' '}
-        </button>
+        {this.props.options.map(option => {
+          return (
+            <button
+              type="button"
+              className={css.statBtn}
+              onClick={option.onClickFunction}
+            >
+              {option.nameFunc}
+            </button>
+          );
+        })}
       </>
     );
   }

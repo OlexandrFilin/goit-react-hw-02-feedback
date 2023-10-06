@@ -36,24 +36,32 @@ export class App extends Component {
     return isNaN(Percent) ? 0 : Math.round(Percent);
   };
   render() {
+    const {
+      HandlerClickGood,
+      HandlerClickNeut,
+      HandlerClickBad,
+      countTotalFeedback,
+      countPositiveFeedbackPercentage,
+    } = this;
+    const { good, neutral, bad } = this.state;
     return (
       <Section title="Please leave feedback">
         <FeedbackOptions
           options={[
-            this.HandlerClickGood,
-            this.HandlerClickNeut,
-            this.HandlerClickBad,
+            { onClickFunction: HandlerClickGood, nameFunc: 'Good' },
+            { conClickFunction: HandlerClickNeut, nameFunc: 'Neutral' },
+            { conClickFunction: HandlerClickBad, nameFunc: 'Bad' },
           ]}
           onLeaveFeedback={0}
         />
 
-        {this.countTotalFeedback() ? (
+        {countTotalFeedback() ? (
           <Statistics
-            good={this.state.good}
-            neutral={this.state.neutral}
-            bad={this.state.bad}
-            total={this.countTotalFeedback()}
-            positivePercentage={this.countPositiveFeedbackPercentage()}
+            good={good}
+            neutral={neutral}
+            bad={bad}
+            total={countTotalFeedback()}
+            positivePercentage={countPositiveFeedbackPercentage()}
           />
         ) : (
           <Notification message={'There is no feedback'}></Notification>
