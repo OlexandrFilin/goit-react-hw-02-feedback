@@ -20,12 +20,15 @@ export class App extends Component {
   };
 
   HandlerClickGood = () => {
+    console.log('god');
     this.HandlerPress('good');
   };
   HandlerClickNeut = () => {
+    console.log('neut');
     this.HandlerPress('neutral');
   };
   HandlerClickBad = () => {
+    console.log('bad');
     this.HandlerPress('bad');
   };
   countTotalFeedback = () => {
@@ -49,8 +52,8 @@ export class App extends Component {
         <FeedbackOptions
           options={[
             { onClickFunction: HandlerClickGood, nameFunc: 'Good' },
-            { conClickFunction: HandlerClickNeut, nameFunc: 'Neutral' },
-            { conClickFunction: HandlerClickBad, nameFunc: 'Bad' },
+            { onClickFunction: HandlerClickNeut, nameFunc: 'Neutral' },
+            { onClickFunction: HandlerClickBad, nameFunc: 'Bad' },
           ]}
           onLeaveFeedback={0}
         />

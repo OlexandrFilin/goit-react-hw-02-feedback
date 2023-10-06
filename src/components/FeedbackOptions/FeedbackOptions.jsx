@@ -5,9 +5,10 @@ export class FeedbackOptions extends Component {
   render() {
     return (
       <>
-        {this.props.options.map(option => {
+        {this.props.options.map((option, ind) => {
           return (
             <button
+              key={ind}
               type="button"
               className={css.statBtn}
               onClick={option.onClickFunction}
