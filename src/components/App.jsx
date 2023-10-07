@@ -1,5 +1,5 @@
 import { Section } from './Section/Section';
-import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
+import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
 import { Statistics } from './Statistics/Statistics';
 import React, { Component } from 'react';
 import Notification from './Notification/Notification';
@@ -11,7 +11,7 @@ export class App extends Component {
     bad: 0,
   };
 
-  HandlerPress = btn => {
+  onLeaveFeedback = btn => {
     this.setState(prevState => {
       return {
         [btn]: prevState[btn] + 1,
@@ -19,18 +19,6 @@ export class App extends Component {
     });
   };
 
-  HandlerClickGood = () => {
-    console.log('god');
-    this.HandlerPress('good');
-  };
-  HandlerClickNeut = () => {
-    console.log('neut');
-    this.HandlerPress('neutral');
-  };
-  HandlerClickBad = () => {
-    console.log('bad');
-    this.HandlerPress('bad');
-  };
   countTotalFeedback = () => {
     return this.state.good + this.state.neutral + this.state.bad;
   };
@@ -40,9 +28,7 @@ export class App extends Component {
   };
   render() {
     const {
-      HandlerClickGood,
-      HandlerClickNeut,
-      HandlerClickBad,
+      onLeaveFeedback,
       countTotalFeedback,
       countPositiveFeedbackPercentage,
     } = this;
@@ -50,12 +36,8 @@ export class App extends Component {
     return (
       <Section title="Please leave feedback">
         <FeedbackOptions
-          options={[
-            { onClickFunction: HandlerClickGood, nameFunc: 'Good' },
-            { onClickFunction: HandlerClickNeut, nameFunc: 'Neutral' },
-            { onClickFunction: HandlerClickBad, nameFunc: 'Bad' },
-          ]}
-          onLeaveFeedback={0}
+          options={Object.keys(this.state)}
+          onLeaveFeedback={onLeaveFeedback}
         />
 
         {countTotalFeedback() ? (

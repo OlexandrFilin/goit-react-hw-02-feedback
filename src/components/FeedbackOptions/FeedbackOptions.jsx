@@ -1,25 +1,28 @@
-import React, { Component } from 'react';
+import React from 'react';
 import css from 'components/FeedbackOptions/FeedbackOptions.module.css';
 
-export class FeedbackOptions extends Component {
-  render() {
-    return (
-      <>
-        {this.props.options.map((option, ind) => {
-          return (
-            <button
-              key={ind}
-              type="button"
-              className={css.statBtn}
-              onClick={option.onClickFunction}
-            >
-              {option.nameFunc}
-            </button>
-          );
-        })}
-      </>
-    );
-  }
-}
+const firsLeterCapital = string => {
+  let newString = [...string];
+  newString[0] = string[0].toUpperCase();
+  return newString.join('');
+};
+const FeedbackOptions = ({ options, onLeaveFeedback }) => {
+  return (
+    <>
+      {options.map(option => {
+        return (
+          <button
+            key={option}
+            type="button"
+            className={css.statBtn}
+            onClick={() => onLeaveFeedback(option)}
+          >
+            {firsLeterCapital(option)}
+          </button>
+        );
+      })}
+    </>
+  );
+};
 
-export default FeedbackOptions;
+export { FeedbackOptions };
